@@ -1,0 +1,23 @@
+bookdown::gitbook:
+  css: style.css
+  split_by: section
+  config:
+    toolbar:
+      position: static
+    search: yes
+    toc:
+      before: |
+        <li><a href="{{class_url}}">{{course_shortname}}</a></li>
+      after: |
+        <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+    scroll_highlight: yes
+    download: ["pdf"]
+bookdown::pdf_book:
+  toc: no
+  includes:
+    in_header: latex/preamble.tex
+    include-before: latex/before_body.tex
+    include-after: latex/after_body.tex
+  latex_engine: xelatex
+  citation_package: natbib
+  keep_tex: yes

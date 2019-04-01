@@ -1,0 +1,15 @@
+Package: coursedown
+Title: Creating course matetials using RMarkdown
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Abhijit",
+           family = "Dasgupta",
+           role = c("aut", "cre"),
+           email = "aikidasgupta@gmail.com")
+Description: 
+  This package sets up a course materials structure that includes slides
+  in `xaringan` format, a course notes website using bookdown, and a website using 
+  RMarkdown
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true

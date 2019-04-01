@@ -1,0 +1,12 @@
+---
+title: "{{course_shortname}}: {{course_name}}"
+author: {{instructor}}
+output: html_document
+---
+
+```{r, include = FALSE, eval = knitr::opts_knit$get("rmarkdown.pandoc.to") == "html"}
+# Enables Font Awesome in HTML based bookdown outputs.
+fa <- rmarkdown::html_dependency_font_awesome()
+fa$attachment <- "fonts/fontawesome-webfont.ttf"
+htmltools::tagList(fa)
+```

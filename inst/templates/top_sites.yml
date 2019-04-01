@@ -1,0 +1,34 @@
+name: {{course_shortname}}
+output_dir: "docs"
+exclude: ['slides','notes']
+navbar:
+  title: {{course_name}}
+  left:
+    - text: "Home"
+      href: index.html
+    - text: Syllabus
+      href: syllabus.html
+    - text: Instructor bio
+      href: bio.html
+    - text: Lectures
+      href: slides/index.html
+    - text: Homework
+      href: assignments/index.html
+    - text: Resources
+      href: resources.html
+  right:
+    - text: Course Notes
+      href: notes/index.html
+    - icon: fa-slack
+      text: Slack
+      href: {{slack_channel}}
+    - icon: fa-github
+      text: GitHub
+      href: {{github}}
+output:
+  html_document:
+    theme: cosmo
+    highlight: textmate
+    css: styles.css
+    code_download: yes
+

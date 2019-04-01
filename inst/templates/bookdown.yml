@@ -1,0 +1,16 @@
+book_filename: "{{course_shortname1}}"
+delete_merged_file: true
+language:
+  ui:
+    chapter_name: "Chapter "
+new_session: true
+output_dir: "../docs/notes"
+rmd_files:
+  html: [
+    "index.Rmd",
+    "00-Introduction.Rmd"
+  ]
+  latex: [
+    "index1.Rmd",
+    "00-Introduction.Rmd"
+  ]

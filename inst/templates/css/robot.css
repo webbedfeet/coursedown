@@ -1,0 +1,162 @@
+.title-slide, title-slide h1, .title-slide h2, .title-slide h3,
+.remark-slide .title-slide,
+.remark-slide .title-slide h1,
+.remark-slide .title-slide h2,
+.remark-slide .title-slide h3 {
+  background-color: #fff;
+  color: #222;
+}
+.title-slide h3,
+.remark-slide .title-slide h3 {
+  font-family: 'Roboto Condensed', 'Avenir Next', 'Helvetica Neue', 'Helvetica', sans-serif;
+  font-weight: 400;
+  padding-top: 15px;
+  font-size: 28px;
+}
+.title-slide h3:nth-of-type(2),
+.remark-slide .title-slide h3:nth-of-type(2) {
+  margin-top: 10px;
+  font-size: 28px;
+}
+.title-slide table,
+.remark-slide .title-slide table {
+  padding-top: 35px;
+}
+.title-slide i.fa,
+.remark-slide .title-slide i.fa {
+  font-size: 2em;
+}
+a, a > code {
+  color: #0051BA;
+  text-decoration: none;
+}
+a:hover, a:hover > code {
+  color: #d22;
+  text-decoration: none;
+}
+.footnote {
+  position: absolute;
+  bottom: 3em;
+  padding-right: 4em;
+  font-size: 90%;
+}
+.remark-code-line-highlighted { background-color: yellow; } /* modified */
+
+.inverse {
+  background-color: #4c4c4c;
+  color: #fff;
+}
+.inverse h1, .inverse h2, .inverse h3 {
+  color: #fff;
+}
+/* Two-column layout */
+.left-column {
+  color: #777;
+  width: 20%;
+  height: 92%;
+  float: left;
+}
+.left-column h2:last-of-type, .left-column h3:last-child {
+  color: #000;
+}
+.right-column {
+  width: 75%;
+  float: right;
+  padding-top: 1em;
+}
+.pull-left {
+  float: left;
+  width: 47%;
+}
+.pull-right {
+  float: right;
+  width: 47%;
+}
+.pull-right ~ * {
+  clear: both;
+}
+img, video, iframe {
+  max-width: 100%;
+}
+blockquote {
+  border-left: solid 5px lightgray;
+  padding-left: 1em;
+  font-size: 90%;
+}
+table {
+  margin: auto;
+  border-top: 1px solid #222;
+  border-bottom: 1px solid #222;
+}
+table thead th { border-bottom: 1px solid #222; }
+th, td { padding: 2px 5px; }
+thead, tfoot, tr:nth-child(even) { background: #f0f0f0 }
+
+@page { margin: 0; }
+@media print {
+  .remark-slide-scaler {
+    width: 100%;
+    height: 100%;
+    transform: scale(1);
+    top: 0;
+    left: 0;
+  }
+}
+
+/*
+Additional styles by Abhijit Dasgupta
+*/
+
+li{
+  padding-top: 1em;
+}
+
+.small {
+  font-size: 80%;
+}
+.tiny {
+  font-size: 60%;
+}
+div.my-header {
+  background-color: #272822;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 30px;
+  width: 100%;
+  text-align: left;
+}
+
+div.my-header span{
+  font-size: 14pt;
+  color: #F7F8FA;
+  position: absolute;
+  left: 15px;
+  bottom: 2px;
+}
+
+.bigblockquote {
+  border-left: solid 5px lightgray;
+  padding-left: 1em;
+  font-size: 200%;
+  font-style: italic;
+}
+
+.column:first-of-type {float:left;}
+.column:last-of-type {float:right;}
+
+.split-40 .column:first-of-type {width: 40%;}
+.split-40 .column:last-of-type {width: 57%;}
+.split-30 .column:first-of-type {width: 30%;}
+.split-30 .column:last-of-type {width: 67%;}
+
+.left-column30 {
+  color: #777;
+  width: 30%;
+  height: 92%;
+  float: left;
+}
+.right-column30 {
+  width: 67%;
+  float: right;
+}

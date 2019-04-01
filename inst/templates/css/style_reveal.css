@@ -1,0 +1,13 @@
+.reveal p {
+  text-align: left;
+}
+.reveal ul,ol,li{
+  margin-left: 10%;
+}
+
+.dyrgraph-label,.dygraph-legend, .dygraph-title{
+  color: black;
+}
+table, tr, td{
+  border: none;
+}

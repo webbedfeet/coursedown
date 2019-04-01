@@ -1,0 +1,19 @@
+---
+title: Assignments
+author: {{course_shortname}}
+output:
+  html_document:
+    theme: cosmo
+    highlight: textmate
+    css: styles.css
+---
+
+All assignments must be completed as RMarkdown documents with an accompanying
+HTML document derived from it. Assignments will be submitted via RStudio Cloud. 
+
+See the [instructions](instructions.html) for how to do this
+
+----
+
+## Assignments
+

@@ -1,0 +1,22 @@
+---
+title: |
+  | {{course_shortname}}: {{course_name}}
+  | Lectures
+author: {{instructor}}
+date: {{dates}}
+output:
+  html_document:
+    theme: cosmo
+    highlight: textmate
+    css: styles.css
+
+---
+
+```{r, include = FALSE, eval = knitr::opts_knit$get("rmarkdown.pandoc.to") == "html"}
+# Enables Font Awesome in HTML based bookdown outputs.
+fa <- rmarkdown::html_dependency_font_awesome()
+fa$attachment <- "fonts/fontawesome-webfont.ttf"
+htmltools::tagList(fa)
+knitr::opts_chunk$set(echo = FALSE)
+```
+
