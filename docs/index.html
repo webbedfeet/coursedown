@@ -33,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">coursedown</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
       </span>
     </div>
 
@@ -58,16 +58,49 @@
 <!--/.navbar -->
 
       
-      </header><link href="index_files/font-awesome-5.1.0/css/all.css" rel="stylesheet">
-<link href="index_files/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet">
-<link id="font-awesome-1-attachment" rel="attachment" href="index_files/font-awesome-5.1.0/fonts/fontawesome-webfont.ttf">
-<div class="row">
+      </header><div class="row">
   <div class="col-md-9 contents">
     
 
     
     
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+<div id="coursedown" class="section level1">
+<div class="page-header"><h1 class="hasAnchor">
+<a href="#coursedown" class="anchor"></a>coursedown</h1></div>
+<!-- badges: start -->
 
+<p>The goal of coursedown is to create a template for course materials.</p>
+<p>One folder (<code>slides</code>) comprises of lecture slides written using <code>xaringan</code> and is processed using RMarkdown into a mini-website, where the <code>index.Rmd</code> would be a listing of lectures as well as any meta-data related to lectures.</p>
+<p>One folder (<code>notes</code>) comprises course notes (which may be derivative of the slides) built using <code>bookdown</code> into a gitbook-formatted online book</p>
+<p>One folder (<code>assignments</code>) can hold homework assignments written in RMarkdown</p>
+<p>The top folder creates the class website using RMarkdown, which can link to a <a href="http://www.slack.com">Slack</a> space for class collaboration, the <a href="http://www.github.com">GitHub</a> repository for the course materials and various other pages (standard ones are provided for syllabus, instructor bio and other resources)</p>
+<div id="installation" class="section level2">
+<h2 class="hasAnchor">
+<a href="#installation" class="anchor"></a>Installation</h2>
+<p>The development version can be installed from <a href="https://github.com/">GitHub</a> with:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># install.packages("devtools")</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">devtools<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/devtools/topics/reexports">install_github</a></span>(<span class="st">"webbedfeet/coursedown"</span>)</a></code></pre></div>
+</div>
+<div id="example" class="section level2">
+<h2 class="hasAnchor">
+<a href="#example" class="anchor"></a>Example</h2>
+<p>This is a basic example which shows you how to create a structured set of folders based on <code>coursedown</code>:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(coursedown)</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw">create_course</span>(<span class="dt">slides =</span> T, <span class="dt">notes =</span> T, <span class="dt">hw =</span> F)</a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="kw"><a href="reference/add_slide.html">add_slide</a></span>(<span class="st">'00-Introduction.Rmd'</span>)</a>
+<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="kw"><a href="reference/slide2note.html">slide2note</a></span>(<span class="st">'slides/00-Introduction.Rmd'</span>, <span class="dt">outdir =</span> <span class="st">'notes'</span>)</a>
+<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="co"># This creates basic notes from the corresponding slides. These can now be</span></a>
+<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="co"># edited before processing</span></a>
+<a class="sourceLine" id="cb2-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="kw">process_notes</span>(<span class="dt">pdf=</span><span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="kw">process_slides</span>()</a>
+<a class="sourceLine" id="cb2-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb2-12" data-line-number="12"><span class="co"># or, all together</span></a>
+<a class="sourceLine" id="cb2-13" data-line-number="13"><span class="kw">process</span>(<span class="dt">notes_pdf =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
+</div>
+</div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
@@ -86,7 +119,13 @@
 </ul>
 </div>
 
-      </div>
+      <div class="dev-status">
+<h2>Dev status</h2>
+<ul class="list-unstyled">
+<li><a href="https://www.tidyverse.org/lifecycle/#experimental"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle: experimental"></a></li>
+</ul>
+</div>
+</div>
 
 </div>
 
