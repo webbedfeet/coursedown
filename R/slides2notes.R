@@ -1,3 +1,14 @@
+#' Translate a xaringan slide into a bookdown chapter
+#'
+#' @param infile Relative path name to the slide RMarkdown fille
+#' @param outdir Relative path where bookdown chapter will reside
+#' @param outfile (default = `basename(infile)`) name of output file (without full path)
+#'
+#' @return A RMarkdown file formatted as a  bookdown chapter
+#' @export
+#'
+#' @examples
+#' slide2note('slides/ggplot.Rmd')
 slide2note <- function(infile, outdir = 'notes', outfile = basename(infile)){
   require(stringr)
   require(purrr)
