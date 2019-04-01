@@ -8,7 +8,7 @@
 #' @export
 #'
 #' @examples
-#' slide2note('slides/ggplot.Rmd')
+#' # slide2note('slides/ggplot.Rmd')
 slide2note <- function(infile, outdir = 'notes', outfile = basename(infile)){
   require(stringr)
   require(purrr)
