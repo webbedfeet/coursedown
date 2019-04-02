@@ -1,3 +1,11 @@
+#' Title
+#'
+#' @param pdf
+#'
+#' @return
+#' @export
+#'
+#' @examples
 process_notes <- function(pdf=FALSE){
   require(rmarkdown)
   require(fs)

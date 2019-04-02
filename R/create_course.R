@@ -1,3 +1,13 @@
+#' Title
+#'
+#' @param slides
+#' @param notes
+#' @param hw
+#'
+#' @return
+#' @export
+#'
+#' @examples
 create_course <- function(slides = TRUE, notes = TRUE, hw = FALSE){
   require(yaml)
   require(fs)

@@ -1,3 +1,11 @@
+#' Title
+#'
+#' @param notes_pdf
+#'
+#' @return
+#' @export
+#'
+#' @examples
 process <- function(notes_pdf = FALSE){
   require(fs)
   if(dir_exists('slides')) process_slides()
