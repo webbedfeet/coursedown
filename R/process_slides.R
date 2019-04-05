@@ -16,6 +16,7 @@ process_slides <- function(pdf = FALSE){
     output_dir <- yml$output_dir
   }
   yml$output_dir <- fs::path_rel(output_dir, start = here::here('slides'))
+  yaml::write_yaml(yml, fs::path(here::here('slides'), '_site.yml'))
   if(!dir_exists(output_dir)) dir_create(output_dir, recursive = TRUE)
   if(pdf){
     slnames <- dir_ls('slides', glob='*.Rmd') %>%
