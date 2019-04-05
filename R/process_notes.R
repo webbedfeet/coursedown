@@ -12,7 +12,7 @@ process_notes <- function(pdf=FALSE){
   final_output_dir <- here::here('docs/notes')
   yml <- yaml::read_yaml(fs::path(here::here('notes'),'_bookdown.yml'))
   output_dir <- fs::path_abs(fs::path(here::here('notes'), yml$output_dir))
-  yml$output_dir <- output_dir
+  yml$output_dir <- fs::path_rel(output_dir, start = here::here('notes'))
   yaml::write_yaml(yml, fs::path(here::here('notes'), '_bookdown.yml'))
   if(!dir_exists(final_output_dir)) dir_create(final_output_dir, recursive = T)
   if(!dir_exists(output_dir)) dir_create(output_dir, recursive = T)
