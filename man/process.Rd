@@ -2,13 +2,19 @@
 % Please edit documentation in R/process.R
 \name{process}
 \alias{process}
-\title{Title}
+\title{Build the website, knit the notes, slides and homeworks to create the full website}
 \usage{
-process(notes_pdf = FALSE)
+process(slides = T, notes = T, hw = T, notes_pdf = FALSE)
 }
 \arguments{
-\item{notes_pdf}{}
+\item{slides}{(T/F) should slides and pages be build}
+
+\item{notes}{(T/F) should course notes be compiled}
+
+\item{hw}{(T/F) should homework be compiled}
+
+\item{notes_pdf}{Should PDF version of the notes be created}
 }
 \description{
-Title
+Build the website, knit the notes, slides and homeworks to create the full website
 }

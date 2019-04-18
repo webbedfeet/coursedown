@@ -2,10 +2,10 @@
 % Please edit documentation in R/process_hw.R
 \name{process_hw}
 \alias{process_hw}
-\title{Title}
+\title{Process homework documents to create a mini-website}
 \usage{
 process_hw()
 }
 \description{
-Title
+Process homework documents to create a mini-website
 }

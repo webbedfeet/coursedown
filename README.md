@@ -7,6 +7,10 @@
 
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+[![Travis build
+status](https://travis-ci.org/webbedfeet/coursedown.svg?branch=master)](https://travis-ci.org/webbedfeet/coursedown)
+[![AppVeyor build
+status](https://ci.appveyor.com/api/projects/status/github/webbedfeet/coursedown?branch=master&svg=true)](https://ci.appveyor.com/project/webbedfeet/coursedown)
 <!-- badges: end -->
 
 The goal of coursedown is to create a template for course materials.

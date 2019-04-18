@@ -27,19 +27,17 @@
 #' @examples
 #' # add_slide('ggplot.Rmd')
 add_slide <- function(nm = 'Untitled.Rmd', template='default', open=TRUE){
-  require(usethis)
-  require(yaml)
-  course_data <- read_yaml('_course.yml')
+  course_data <- yaml::read_yaml('_course.yml')
 
   if(template=='default'){
-  use_template('slide_template.Rmd',
-               save_as = paste0('slides/',nm),
+  usethis::use_template('slide_template.Rmd',
+               save_as = paste0('slides/lectures/',nm),
                package = 'coursedown',
                data = course_data)
   } else {
     contents <- strsplit(whisker::whisker.render(
       readLines(template, encoding = 'UTF-8'), course_data),'\n')[[1]]
     writeLines(contents, con = file(file.path('slides', nm)))
-    if(open) usethis::edit_file(file.path('slides',nm))
   }
+  if(open) usethis::edit_file(file.path('slides',nm))
 }

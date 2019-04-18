@@ -2,13 +2,19 @@
 % Please edit documentation in R/create_course.R
 \name{create_course}
 \alias{create_course}
-\title{Title}
+\title{Create a template file and directory structure for a teaching course}
 \usage{
 create_course(slides = TRUE, notes = TRUE, hw = FALSE)
 }
 \arguments{
-\item{hw}{}
+\item{slides}{Should a directory for slides be created, and templates populated (default=T)}
+
+\item{notes}{Should a directory for course notes be created, and templates populated (Default=T)}
+
+\item{hw}{Should a directory for homeworks be created and templates populated (default = F)}
 }
 \description{
-Title
+This creates folders for slides, course notes and homework,
+as well as a website for the course with syllabus, instructor bio and
+other resources
 }

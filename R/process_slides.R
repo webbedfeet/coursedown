@@ -1,14 +1,13 @@
-#' Title
+#' Process the slides folder to knit the xaringan slides (using drake) and create the web front-end
 #'
-#' @return
+#' @param pdf Shold PDF versions of the slides be compiled
+#'
 #' @export
 #'
-#' @examples
 process_slides <- function(pdf = FALSE){
-  require(rmarkdown)
-  require(fs)
+  requireNamespace(tidyverse)
   final_output_dir <- fs::path(here::here('docs/slides'))
-  if(!dir_exists(final_output_dir)) dir_create(final_output_dir, recursive = TRUE)
+  if(!fs::dir_exists(final_output_dir)) fs::dir_create(final_output_dir, recursive = TRUE)
   yml <- yaml::read_yaml(fs::path(here::here('slides'),'_site.yml'))
   if(yml$output_dir != fs::path_abs(fs::path(here::here('slides'), yml$output_dir))){
     output_dir <- fs::path_abs(fs::path(here::here('slides'), yml$output_dir))
@@ -17,19 +16,13 @@ process_slides <- function(pdf = FALSE){
   }
   yml$output_dir <- fs::path_rel(output_dir, start = here::here('slides'))
   yaml::write_yaml(yml, fs::path(here::here('slides'), '_site.yml'))
-  if(!dir_exists(output_dir)) dir_create(output_dir, recursive = TRUE)
+  if(!fs::dir_exists(output_dir)) fs::dir_create(output_dir, recursive = TRUE)
+  source('slides/lectures/drake.R')
+  make(plan)
   if(pdf){
-    slnames <- dir_ls('slides', glob='*.Rmd') %>%
-      `[`(!str_detect('index'))
-    slnames <- path('slides', slnames)
-    map(slnames, ~try(slide2pdf(.)))
-    if(length(dir_ls('slides', glob = "*.pdf")) > 0){
-      file_copy(dir_ls('slides', glob='*.pdf'), output_dir)
-    }
-  } else {
-    render_site('slides')
+    make(plan_pdf)
   }
   if (output_dir != final_output_dir){
-    fs::file_copy(dir_ls(output_dir), final_output_dir, overwrite = TRUE)
+    fs::file_copy(fs::dir_ls(output_dir), final_output_dir, overwrite = TRUE)
   }
 }

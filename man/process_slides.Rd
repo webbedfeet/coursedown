@@ -2,10 +2,13 @@
 % Please edit documentation in R/process_slides.R
 \name{process_slides}
 \alias{process_slides}
-\title{Title}
+\title{Process the slides folder to knit the xaringan slides (using drake) and create the web front-end}
 \usage{
-process_slides()
+process_slides(pdf = FALSE)
+}
+\arguments{
+\item{pdf}{Shold PDF versions of the slides be compiled}
 }
 \description{
-Title
+Process the slides folder to knit the xaringan slides (using drake) and create the web front-end
 }

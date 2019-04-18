@@ -1,0 +1,10 @@
+ xaringan::moon_reader:
+    css: [default, './robot.css', './robot-fonts.css']
+    #css: [default, metropolis, metropolis-fonts]
+    nature:
+      ratio: '16:9'
+      highlightLanguage: R
+      countIncrementalSlides: false
+      highlightStyle: docco
+      highlightLines: true
+      slideNumberFormat: "%current%"

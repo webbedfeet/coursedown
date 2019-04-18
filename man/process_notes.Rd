@@ -2,13 +2,13 @@
 % Please edit documentation in R/process_notes.R
 \name{process_notes}
 \alias{process_notes}
-\title{Title}
+\title{Process the notes to create a bookdown document and potentially a PDF version}
 \usage{
 process_notes(pdf = FALSE)
 }
 \arguments{
-\item{pdf}{}
+\item{pdf}{(T/F) Whether the PDF version of the notes should be compiled}
 }
 \description{
-Title
+Process the notes to create a bookdown document and potentially a PDF version
 }

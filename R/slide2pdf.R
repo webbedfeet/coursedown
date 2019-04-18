@@ -1,12 +1,9 @@
-#' Title
+#' Converting slides to PDF format using chrome_print
 #'
-#' @param slname
+#' @param slname Either the name of the HTML slides (preferred) or the name of the Rmd file
 #'
-#' @return
 #' @export
 #'
-#' @examples
 slide2pdf <- function(slname){
-  require(pagedown)
   pagedown::chrome_print(slname)
 }
