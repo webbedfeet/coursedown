@@ -18,3 +18,5 @@ Imports:
     fs, drake, rmarkdown, usethis, whisker, yaml, here, tidyverse, pagedown, purrr
 Suggests: 
     testthat
+URL: https://github.com/webbedfeet/coursedown
+BugReports: https://github.com/webbedfeet/coursedown/issues
