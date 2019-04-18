@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Translate a xaringan slide into a bookdown chapter — slide2note • coursedown</title>
+<title>Converting slides to PDF format using chrome_print — slide2pdf • coursedown</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,9 +30,9 @@
 
 
 
-<meta property="og:title" content="Translate a xaringan slide into a bookdown chapter — slide2note" />
+<meta property="og:title" content="Converting slides to PDF format using chrome_print — slide2pdf" />
 
-<meta property="og:description" content="Translate a xaringan slide into a bookdown chapter" />
+<meta property="og:description" content="Converting slides to PDF format using chrome_print" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -97,54 +97,35 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Translate a xaringan slide into a bookdown chapter</h1>
+    <h1>Converting slides to PDF format using chrome_print</h1>
     
-    <div class="hidden name"><code>slide2note.Rd</code></div>
+    <div class="hidden name"><code>slide2pdf.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Translate a xaringan slide into a bookdown chapter</p>
+    <p>Converting slides to PDF format using chrome_print</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>slide2note</span>(<span class='no'>infile</span>, <span class='kw'>outdir</span> <span class='kw'>=</span> <span class='st'>"notes"</span>, <span class='kw'>outfile</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/basename'>basename</a></span>(<span class='no'>infile</span>))</pre>
+    <pre class="usage"><span class='fu'>slide2pdf</span>(<span class='no'>slname</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>infile</th>
-      <td><p>Relative path name to the slide RMarkdown fille</p></td>
-    </tr>
-    <tr>
-      <th>outdir</th>
-      <td><p>Relative path where bookdown chapter will reside</p></td>
-    </tr>
-    <tr>
-      <th>outfile</th>
-      <td><p>(default = `basename(infile)`) name of output file (without full path)</p></td>
+      <th>slname</th>
+      <td><p>Either the name of the HTML slides (preferred) or the name of the Rmd file</p></td>
     </tr>
     </table>
     
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A RMarkdown file formatted as a  bookdown chapter</p>
-    
-
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'># slide2note('slides/ggplot.Rmd')
-</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-      
-      <li><a href="#value">Value</a></li>
-      
-      <li><a href="#examples">Examples</a></li>
-    </ul>
+                </ul>
 
   </div>
 </div>
