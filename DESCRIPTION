@@ -1,6 +1,6 @@
 Package: coursedown
 Title: Creating course matetials using RMarkdown
-Version: 0.1.0
+Version: 0.2.0
 Authors@R: 
     person(given = "Abhijit",
            family = "Dasgupta",
