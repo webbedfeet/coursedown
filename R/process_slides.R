@@ -5,7 +5,7 @@
 #' @export
 #'
 process_slides <- function(pdf = FALSE){
-  requireNamespace(tidyverse)
+  requireNamespace("tidyverse")
   final_output_dir <- fs::path(here::here('docs/slides'))
   if(!fs::dir_exists(final_output_dir)) fs::dir_create(final_output_dir, recursive = TRUE)
   yml <- yaml::read_yaml(fs::path(here::here('slides'),'_site.yml'))
@@ -17,6 +17,7 @@ process_slides <- function(pdf = FALSE){
   yml$output_dir <- fs::path_rel(output_dir, start = here::here('slides'))
   yaml::write_yaml(yml, fs::path(here::here('slides'), '_site.yml'))
   if(!fs::dir_exists(output_dir)) fs::dir_create(output_dir, recursive = TRUE)
+  rmarkdown::render_site('slides')
   source('slides/lectures/drake.R')
   make(plan)
   if(pdf){

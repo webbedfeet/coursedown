@@ -8,9 +8,9 @@
 #' @export
 #'
 process <- function(slides = T, notes = T, hw = T, notes_pdf = FALSE){
-  if(!dir_exists(here::here('docs'))) fs::dir_create(here::here('docs'))
+  if(!fs::dir_exists(here::here('docs'))) fs::dir_create(here::here('docs'))
   rmarkdown::render_site(here::here())
-  if(dir_exists('slides') & slides) process_slides()
-  if(dir_exists('notes') & notes) process_notes(pdf = notes_pdf)
-  if(dir_exists('assignments') & hw) process_hw()
+  if(fs::dir_exists('slides') & slides) process_slides()
+  if(fs::dir_exists('notes') & notes) process_notes(pdf = notes_pdf)
+  if(fs::dir_exists('assignments') & hw) process_hw()
 }

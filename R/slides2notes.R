@@ -10,7 +10,7 @@
 #' @examples
 #' # slide2note('slides/ggplot.Rmd')
 slide2note <- function(infile, outdir = 'notes', outfile = basename(infile)){
-  requireNamespace(tidyverse)
+  requireNamespace("tidyverse")
   outfile <- file.path(outdir, outfile)
   file_contents <- readLines(infile)
   ind <- which(purrr::map_lgl(file_contents, str_detect,'---'))
