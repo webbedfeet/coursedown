@@ -15,6 +15,8 @@ process_hw <- function(){
   yaml::write_yaml(yml, fs::path(here::here('assignments'), '_site.yml'))
   if(!fs::dir_exists(output_dir)) fs::dir_create(output_dir, recursive = TRUE)
   rmarkdown::render_site('assignments')
+  source('assignments/HW/drake.R')
+  make(plan)
   if (output_dir != final_output_dir){
     fs::file_copy(dir_ls(output_dir), final_output_dir, overwrite = TRUE)
   }
