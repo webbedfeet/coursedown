@@ -10,7 +10,11 @@ process_slides <- function(drake_source = here::here('_drake.R'), pdf = FALSE, l
   requireNamespace('fs')
   requireNamespace('drake')
   source(drake_source)
-  make(slides_plan, lock_envir = lock_environment)
+  if(!pdf){
+  make(slides_plan %>% filter(!str_detect(target, 'pdf')), lock_envir = lock_environment)
+  } else {
+    make(slides_plan, lock_envir = lock_environment)
+  }
   #
   # final_output_dir <- fs::path(here::here('docs/slides'))
   # if(!fs::dir_exists(final_output_dir)) fs::dir_create(final_output_dir, recursive = TRUE)
