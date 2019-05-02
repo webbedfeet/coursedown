@@ -8,7 +8,7 @@
 #' @export
 #'
 process <- function(drake_source = here::here('_drake.R'),
-                    slides = T, notes = T, hw = T,
+                    slides = T, notes = F, hw = T,
                     slides_pdf = TRUE, notes_pdf = FALSE,
                     lock_environment = TRUE){
   requireNamespace('drake')

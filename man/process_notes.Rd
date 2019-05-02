@@ -4,7 +4,7 @@
 \alias{process_notes}
 \title{Process the notes to create a bookdown document and potentially a PDF version}
 \usage{
-process_notes(pdf = FALSE)
+process_notes(drake_source = here::here("_drake.R"), pdf = FALSE)
 }
 \arguments{
 \item{pdf}{(T/F) Whether the PDF version of the notes should be compiled}

@@ -4,7 +4,9 @@
 \alias{process}
 \title{Build the website, knit the notes, slides and homeworks to create the full website}
 \usage{
-process(slides = T, notes = T, hw = T, notes_pdf = FALSE)
+process(drake_source = here::here("_drake.R"), slides = T, notes = F,
+  hw = T, slides_pdf = TRUE, notes_pdf = FALSE,
+  lock_environment = TRUE)
 }
 \arguments{
 \item{slides}{(T/F) should slides and pages be build}

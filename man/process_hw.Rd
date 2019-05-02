@@ -4,7 +4,8 @@
 \alias{process_hw}
 \title{Process homework documents to create a mini-website}
 \usage{
-process_hw()
+process_hw(drake_source = here::here("_drake.R"),
+  lock_environment = TRUE)
 }
 \description{
 Process homework documents to create a mini-website

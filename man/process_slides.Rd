@@ -4,7 +4,8 @@
 \alias{process_slides}
 \title{Process the slides folder to knit the xaringan slides (using drake) and create the web front-end}
 \usage{
-process_slides(pdf = FALSE)
+process_slides(drake_source = here::here("_drake.R"), pdf = FALSE,
+  lock_environment = TRUE)
 }
 \arguments{
 \item{pdf}{Shold PDF versions of the slides be compiled}
