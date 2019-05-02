@@ -27,4 +27,19 @@ slides_plan <- drake_plan(
   )
 )
 
-drake_config(slides_plan, verbose = 2)
+hw_rmdfiles <- dir_ls('assignments/HW', glob = '*.Rmd')
+hw_outdir <- here::here('docs','assignments','HW')
+hw_outrmd <- fs::path('docs',hw_rmdfiles)
+
+hw_plan <- drake_plan(
+  create_hw = target(
+    rmarkdown::render(knitr_in(rmdf), output_dir = hw_outdir),
+    transform = map(rmdf = !!hw_rmdfiles)
+  ),
+  make_index = target(
+    rmarkdown::render_site(input = knitr_in(here::here('assignments'))),
+    trigger = trigger(depend = all(file_exists(!!hw_outrmd)))
+  )
+)
+config_slides <- drake_config(slides_plan, verbose = 2)
+config_hw <- drake_config(hw_plan, verbose = 2)
