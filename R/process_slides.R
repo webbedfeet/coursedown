@@ -4,12 +4,13 @@
 #'
 #' @export
 #'
-process_slides <- function(drake_source = here::here('_drake.R'), pdf = FALSE){
+process_slides <- function(drake_source = here::here('_drake.R'), pdf = FALSE, lock_environment = TRUE){
   requireNamespace("tidyverse")
   requireNamespace('here')
   requireNamespace('fs')
+  requireNamespace('drake')
   source(drake_source)
-  make(slides_plan)
+  make(slides_plan, lock_envir = lock_environment)
   #
   # final_output_dir <- fs::path(here::here('docs/slides'))
   # if(!fs::dir_exists(final_output_dir)) fs::dir_create(final_output_dir, recursive = TRUE)
