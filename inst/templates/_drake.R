@@ -41,5 +41,19 @@ hw_plan <- drake_plan(
     trigger = trigger(depend = all(file_exists(!!hw_outrmd)))
   )
 )
+
+notes_plan <- drake_plan(
+  create_notes = rmarkdown::render_site(knitr_in(here('notes')),
+                                        output_format = 'bookdown::gitbook'),
+  create_notes_pdf = rmarkdown::render_site(knitr_in(here('notes')),
+                                            output_format = 'bookdown::pdf_book')
+)
+
+top_plan <- drake_plan(
+  create_site = target(
+    rmarkdown::render_site(input = knitr_in(here::here()))
+  )
+)
+
 config_slides <- drake_config(slides_plan, verbose = 2)
 config_hw <- drake_config(hw_plan, verbose = 2)
