@@ -15,7 +15,7 @@
 #' # process() # Uses default values
 process <- function(drake_source = here::here('_drake.R'), plan = full_plan, lock_environment = TRUE){
   if(!fs::file_exists(drake_source)){
-    usethis::use_template('_drake.R', package='coursedown', save_as = '_drake.R')
+    usethis::use_template('_drake.R', package='coursedown', save_as = drake_source)
   }
   source(drake_source)
   drake::make(plan, lock_envir = F)
