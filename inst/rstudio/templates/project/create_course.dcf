@@ -1,0 +1,4 @@
+Binding: create_course
+Title: Course Template using coursedown
+OpenFiles: slides/lectures/01-lecture1.Rmd
+
