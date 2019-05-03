@@ -4,7 +4,8 @@ library(here)
 suppressPackageStartupMessages(library(tidyverse))
 library(bookdown)
 
-
+old_notes_time <- readRDS('notes/mod_times.rds')
+curr_notes_time <- fs::dir_info('notes', glob = '*.Rmd') %>% select(path,change_time)
 
 slides_rmdfiles <- dir_ls('slides/lectures/', glob = '*.Rmd')
 slides_outdir <- here::here('docs','slides','lectures')
@@ -38,12 +39,19 @@ full_plan <- drake_plan(
     rmarkdown::render_site(input = knitr_in(here::here('assignments'))),
     trigger = trigger(depend = all(file_exists(!!hw_outrmd)))
   ),
-  create_notes_html = coursedown::make_book(knitr_in('notes/index.Rmd'),"bookdown::gitbook"),
-  create_notes_pdf = coursedown::make_book(knitr_in('notes/index1.Rmd'),'bookdown::pdf_book'),
+  create_notes_html = target(
+    coursedown::make_book(knitr_in('notes/index.Rmd'),"bookdown::gitbook"),
+    trigger = trigger(condition = any(curr_notes_time$change_time > old_notes_time$change_time))
+  ),
+  create_notes_pdf = target(
+    coursedown::make_book(knitr_in('notes/index1.Rmd'),'bookdown::pdf_book'),
+    trigger = trigger(condition = any(curr_notes_time$change_time > old_notes_time$change_time))
+  ),
   create_top = target(
     rmarkdown::render_site(input = knitr_in(rmdf)),
     transform = map(rmdf = !!top_rmdfiles)
   )
 )
+
 
 drake_config(full_plan)
