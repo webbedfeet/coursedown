@@ -66,3 +66,7 @@ process()
 This will create the website in the `docs` folder. Opening
 `docs/index.html` will give you access to the full website. You can also
 deploy this website using GitHub Pages
+
+An example (in fact the first example) of this process can be seen for
+my BIOF 439 class being taught Spring 2019 at FAES Graduate School @
+NIH. [Follow the link](http://www.araastat.com/BIOF439)
