@@ -85,6 +85,7 @@
 <p>One folder (<code>notes</code>) comprises course notes (which may be derivative of the slides) built using <code>bookdown</code> into a gitbook-formatted online book</p>
 <p>One folder (<code>assignments</code>) can hold homework assignments written in RMarkdown</p>
 <p>The top folder creates the class website using RMarkdown, which can link to a <a href="http://www.slack.com">Slack</a> space for class collaboration, the <a href="http://www.github.com">GitHub</a> repository for the course materials and various other pages (standard ones are provided for syllabus, instructor bio and other resources)</p>
+<p>Building the web pages, presentations and course notes from R Markdown is monitored and controlled by <a href="https://cran.r-project.org/web/packages/drake/">drake</a>.</p>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
@@ -104,11 +105,8 @@
 <a class="sourceLine" id="cb2-6" data-line-number="6"><span class="co"># This creates basic notes from the corresponding slides. These can now be</span></a>
 <a class="sourceLine" id="cb2-7" data-line-number="7"><span class="co"># edited before processing</span></a>
 <a class="sourceLine" id="cb2-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="kw"><a href="https://www.rdocumentation.org/packages/coursedown/topics/process_notes">process_notes</a></span>(<span class="dt">pdf=</span><span class="ot">FALSE</span>)</a>
-<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="kw"><a href="https://www.rdocumentation.org/packages/coursedown/topics/process_slides">process_slides</a></span>()</a>
-<a class="sourceLine" id="cb2-11" data-line-number="11"></a>
-<a class="sourceLine" id="cb2-12" data-line-number="12"><span class="co"># or, all together</span></a>
-<a class="sourceLine" id="cb2-13" data-line-number="13"><span class="kw"><a href="reference/process.html">process</a></span>(<span class="dt">notes_pdf =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
+<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="kw"><a href="reference/process.html">process</a></span>()</a></code></pre></div>
+<p>This will create the website in the <code>docs</code> folder. Opening <code>docs/index.html</code> will give you access to the full website. You can also deploy this website using GitHub Pages</p>
 </div>
 </div>
   </div>

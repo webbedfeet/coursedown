@@ -32,6 +32,10 @@ to a [Slack](http://www.slack.com) space for class collaboration, the
 various other pages (standard ones are provided for syllabus, instructor
 bio and other resources)
 
+Building the web pages, presentations and course notes from R Markdown
+is monitored and controlled by
+[drake](https://cran.r-project.org/web/packages/drake/).
+
 ## Installation
 
 The development version can be installed from
@@ -56,9 +60,9 @@ slide2note('slides/00-Introduction.Rmd', outdir = 'notes')
 # This creates basic notes from the corresponding slides. These can now be
 # edited before processing
 
-process_notes(pdf=FALSE)
-process_slides()
-
-# or, all together
-process(notes_pdf = FALSE)
+process()
 ```
+
+This will create the website in the `docs` folder. Opening
+`docs/index.html` will give you access to the full website. You can also
+deploy this website using GitHub Pages

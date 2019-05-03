@@ -28,7 +28,8 @@ Imports:
     glue,
     rlang,
     stringr,
-    whisker
+    whisker,
+    magrittr
 Suggests: 
     testthat
 URL: https://github.com/webbedfeet/coursedown
