@@ -7,11 +7,13 @@
 #' @export
 #'
 make_book <- function(infile, output_format){
-  setwd(here::here(dirname(infile)))
-  infile <- basename(infile)
+  requireNamespace('bookdown')
+  requireNamespace('here')
+  setwd(here::here(fs::path_dir(infile)))
+  infile1 <- as.character(fs::path_file(infile))
   # print(getwd())
   # print(infile)
   # if(fs::file_exists(infile)) print('file present')
-  bookdown::render_book(infile, output_format)
+  bookdown::render_book(infile1, output_format)
   setwd(here::here())
 }
