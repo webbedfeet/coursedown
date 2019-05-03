@@ -27,6 +27,10 @@ library(tidyverse)
 library(fs)
 library(glue)
 library(kableExtra)
+parse_title <- function(f){
+  if(is.na(f)) return(NA)
+  rmarkdown::yaml_front_matter(f)$title
+}
 setwd(here::here('docs','slides'))
 htmls <- dir_ls('lectures',regex = '\\d{2}.*html')
 pdfs <- dir_ls('lectures', regex = '\\d{2}.*pdf')
@@ -41,13 +45,16 @@ blah <- Reduce(full_join, list(htmls, pdfs,rmds)) %>%
   select(base, everything())
 blah <- blah %>% tidyr::gather(variable, value, -base) %>% 
   mutate(value = glue('[{variable}]({value}){{target="_blank"}}')) %>% 
-  mutate(value = ifelse(str_detect(value, 'NA'), '', value)) %>% 
+  mutate(value = ifelse(str_detect(value, 'NA'), '', value)) %>%
   spread(variable, value) %>% 
   rename(Lecture=base) %>% 
   mutate(Lecture = Lecture %>% 
            str_extract('^\\d+') %>% 
            as.numeric() %>% 
-           glue::glue('Lecture {x}', x = .))
+           glue::glue('Lecture {x}', x = .)) %>% 
+  mutate(Title = map_chr(str_match(Rmd, '\\((.+)\\)')[,2],parse_title)) %>% 
+  select(Lecture, Title, everything()) %>% 
+  mutate_all(~ifelse(is.na(.), '', .))
 kable(blah) %>%
   kable_styling(bootstrap_options='striped', full_width = T)
 setwd(here::here())
