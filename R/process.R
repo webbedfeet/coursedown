@@ -17,7 +17,12 @@ process <- function(drake_source = here::here('_drake.R'), plan = full_plan, loc
   if(!fs::file_exists(drake_source)){
     usethis::use_template('_drake.R', package='coursedown', save_as = drake_source)
   }
+  tmp <- new.env()
+  source(drake_source, local=tmp) # capturing names of the created objects
   source(drake_source)
   tst <- tryCatch(drake::make(plan, lock_envir = lock_environment))
-  if(is.null(tst)) saveRDS(curr_notes_time, file = 'notes/mod_times.rds')
+  if(is.null(tst)) {
+    rm(list = ls(tmp), envir = as.environment('.GlobalEnv'))
+    rm(tmp)
+  }
 }
