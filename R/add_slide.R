@@ -27,6 +27,7 @@
 #' @examples
 #' # add_slide('ggplot.Rmd')
 add_slide <- function(nm = 'Untitled.Rmd', template='default', open=TRUE){
+  requireNamespace('whisker')
   course_data <- yaml::read_yaml('_course.yml')
 
   if(template=='default'){
