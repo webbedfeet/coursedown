@@ -62,14 +62,14 @@ create_course <- function(slides = TRUE, notes = TRUE, hw = FALSE){
     usethis::use_template('slide_site.yml', save_as = 'slides/_site.yml', package = 'coursedown',
                  data = course_data)
     usethis::use_template('slide_output.yml', save_as = 'slides/lectures/_output.yml', package='coursedown', data = course_data)
-    usethis::use_template('drake_slides.R', save_as = 'slides/lectures/drake.R', package='coursedown',
-                 data=course_data)
     fs::file_copy(fs::dir_ls(system.file('templates','css', package='coursedown'),
                      regexp='style.\\.css'),
               'slides', overwrite = T)
     fs::file_copy(fs::dir_ls(system.file('templates','css', package='coursedown'),
                      regexp = 'robot'),
               'slides/lectures', overwrite = T)
+    usethis::use_template('slide_template.Rmd', save_as = 'slides/lectures/01-lecture1.Rmd',
+                          package = 'coursedown', data = course_data)
   }
 
   if(notes){
