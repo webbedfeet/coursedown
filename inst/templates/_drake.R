@@ -2,6 +2,19 @@ library(drake)
 library(fs)
 library(here)
 suppressPackageStartupMessages(library(tidyverse))
+library(bookdown)
+
+make_book <- function(infile, output_format){
+  requireNamespace('bookdown')
+  requireNamespace('here')
+  setwd(here::here(fs::path_dir(infile)))
+  infile1 <- as.character(fs::path_file(infile))
+  # print(getwd())
+  # print(infile)
+  # if(fs::file_exists(infile)) print('file present')
+  bookdown::render_book(infile1, output_format)
+  setwd(here::here())
+}
 
 
 slides_rmdfiles <- dir_ls('slides/lectures/', glob = '*.Rmd')
@@ -21,7 +34,7 @@ full_plan <- drake_plan(
     transform = map(rmdf=!!slides_rmdfiles)
   ),
   create_slides_pdf = target(
-    rmd2pdf(knitr_in(rmdf)),
+    coursedown::slide2pdf(knitr_in(rmdf)),
     transform = map(rmdf = !!slides_rmdfiles)
   ),
   make_slide_index = target(
@@ -36,11 +49,8 @@ full_plan <- drake_plan(
     rmarkdown::render_site(input = knitr_in(here::here('assignments'))),
     trigger = trigger(depend = all(file_exists(!!hw_outrmd)))
   ),
-  create_notes_html = rmarkdown::render(input = knitr_in('notes/index.Rmd'),
-                                        output_format = "bookdown::gitbook"),
-  create_notes_pdf = bookdown::render_book(input = knitr_in('notes/index1.Rmd'),
-                                           output_format = 'bookdown::pdf_book',
-                                           config_file = '_bookdown.yml'),
+  create_notes_html = make_book(knitr_in('notes/index.Rmd'),"bookdown::gitbook"),
+  create_notes_pdf = make_book(knitr_in('notes/index1.Rmd'),'bookdown::pdf_book'),
   create_top = target(
     rmarkdown::render_site(input = knitr_in(rmdf)),
     transform = map(rmdf = !!top_rmdfiles)
