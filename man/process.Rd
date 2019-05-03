@@ -4,7 +4,7 @@
 \alias{process}
 \title{Processing all the raw files to create a deployable website}
 \usage{
-process(drake_source = here::here("_drake.R"), plan = "full_plan",
+process(drake_source = here::here("_drake.R"), plan = full_plan,
   lock_environment = TRUE)
 }
 \arguments{
