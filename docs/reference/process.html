@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Build the website, knit the notes, slides and homeworks to create the full website — process • coursedown</title>
+<title>Processing all the raw files to create a deployable website — process • coursedown</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,9 +30,11 @@
 
 
 
-<meta property="og:title" content="Build the website, knit the notes, slides and homeworks to create the full website — process" />
+<meta property="og:title" content="Processing all the raw files to create a deployable website — process" />
 
-<meta property="og:description" content="Build the website, knit the notes, slides and homeworks to create the full website" />
+<meta property="og:description" content="The default location for the deployed files is in `here::here('docs')`, i.e the docs folder. The
+assumption is that the website is deployed on GitHub Pages, where the pages are in the docs folder
+rather than in the gh-pages branch. This can be set in the settings of the GitHub repository" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -102,47 +104,57 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Build the website, knit the notes, slides and homeworks to create the full website</h1>
+    <h1>Processing all the raw files to create a deployable website</h1>
     <small class="dont-index">Source: <a href='https://github.com/webbedfeet/coursedown/blob/master/R/process.R'><code>R/process.R</code></a></small>
     <div class="hidden name"><code>process.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Build the website, knit the notes, slides and homeworks to create the full website</p>
+    <p>The default location for the deployed files is in `here::here('docs')`, i.e the docs folder. The
+assumption is that the website is deployed on GitHub Pages, where the pages are in the docs folder
+rather than in the gh-pages branch. This can be set in the settings of the GitHub repository</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>process</span>(<span class='kw'>slides</span> <span class='kw'>=</span> <span class='no'>T</span>, <span class='kw'>notes</span> <span class='kw'>=</span> <span class='no'>T</span>, <span class='kw'>hw</span> <span class='kw'>=</span> <span class='no'>T</span>, <span class='kw'>notes_pdf</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'>process</span>(<span class='kw'>drake_source</span> <span class='kw'>=</span> <span class='kw pkg'>here</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/here/topics/here'>here</a></span>(<span class='st'>"_drake.R"</span>), <span class='kw'>plan</span> <span class='kw'>=</span> <span class='st'>"full_plan"</span>,
+  <span class='kw'>lock_environment</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>slides</th>
-      <td><p>(T/F) should slides and pages be build</p></td>
+      <th>drake_source</th>
+      <td><p>The location of the file containing the drake plan that creates all the deployable web files. Default value is `_drake.R` in the top folder of the project, i.e. `here::here('_drake.R')`.</p></td>
     </tr>
     <tr>
-      <th>notes</th>
-      <td><p>(T/F) should course notes be compiled</p></td>
+      <th>plan</th>
+      <td><p>Name of the drake plan. Defaults to `full_plan` as in the default `_drake.R` template</p></td>
     </tr>
     <tr>
-      <th>hw</th>
-      <td><p>(T/F) should homework be compiled</p></td>
-    </tr>
-    <tr>
-      <th>notes_pdf</th>
-      <td><p>Should PDF version of the notes be created</p></td>
+      <th>lock_environment</th>
+      <td><p>A logical designating whether we should lock the environment when using `make(plan)`. See the Self-invalidation section of the `drake::make` documentation.</p></td>
     </tr>
     </table>
     
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
+    <p>Several files are created that comprise the deployable website, with xaringan presentations in HTML, PDF and raw Rmd, course notes as a gitbook-formatted bookdown web document and PDF, homeworks as HTML pages and R Markdown, and a top-level website with information about the course.</p>
+    
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'># process() # Uses default values
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-                </ul>
+      
+      <li><a href="#value">Value</a></li>
+      
+      <li><a href="#examples">Examples</a></li>
+    </ul>
 
   </div>
 </div>

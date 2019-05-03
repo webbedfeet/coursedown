@@ -2,7 +2,7 @@
 % Please edit documentation in R/create_course.R
 \name{create_course}
 \alias{create_course}
-\title{Create a template file and directory structure for a teaching course}
+\title{Create a templated file and directory structure for a teaching course}
 \usage{
 create_course(slides = TRUE, notes = TRUE, hw = FALSE)
 }

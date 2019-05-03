@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Process the slides folder to knit the xaringan slides (using drake) and create the web front-end — process_slides • coursedown</title>
+<title>Compute the dates for the class, based on weekly classes — classDate • coursedown</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,9 +30,9 @@
 
 
 
-<meta property="og:title" content="Process the slides folder to knit the xaringan slides (using drake) and create the web front-end — process_slides" />
+<meta property="og:title" content="Compute the dates for the class, based on weekly classes — classDate" />
 
-<meta property="og:description" content="Process the slides folder to knit the xaringan slides (using drake) and create the web front-end" />
+<meta property="og:description" content="Compute the dates for the class, based on weekly classes" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -102,35 +102,53 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Process the slides folder to knit the xaringan slides (using drake) and create the web front-end</h1>
-    <small class="dont-index">Source: <a href='https://github.com/webbedfeet/coursedown/blob/master/R/process_slides.R'><code>R/process_slides.R</code></a></small>
-    <div class="hidden name"><code>process_slides.Rd</code></div>
+    <h1>Compute the dates for the class, based on weekly classes</h1>
+    <small class="dont-index">Source: <a href='https://github.com/webbedfeet/coursedown/blob/master/R/classDate.R'><code>R/classDate.R</code></a></small>
+    <div class="hidden name"><code>classDate.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Process the slides folder to knit the xaringan slides (using drake) and create the web front-end</p>
+    <p>Compute the dates for the class, based on weekly classes</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>process_slides</span>(<span class='kw'>pdf</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'>classDate</span>(<span class='no'>wk</span>, <span class='no'>startDate</span>, <span class='kw'>out_format</span> <span class='kw'>=</span> <span class='st'>"%B %d, %Y"</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>pdf</th>
-      <td><p>Shold PDF versions of the slides be compiled</p></td>
+      <th>wk</th>
+      <td><p>The week number</p></td>
+    </tr>
+    <tr>
+      <th>startDate</th>
+      <td><p>The first date for class, formatted as YYYY-MM-DD</p></td>
+    </tr>
+    <tr>
+      <th>out_format</th>
+      <td><p>The format in which the dates will be printed. Follows the conventions in <code>strptime</code></p></td>
     </tr>
     </table>
     
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
+    <p>A formatted date</p>
+    
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'>classDate</span>(<span class='fl'>3</span>, <span class='st'>'2019-01-28'</span>)</div><div class='output co'>#&gt; [1] "February 11, 2019"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-                </ul>
+      
+      <li><a href="#value">Value</a></li>
+      
+      <li><a href="#examples">Examples</a></li>
+    </ul>
 
   </div>
 </div>
