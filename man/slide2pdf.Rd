@@ -2,13 +2,19 @@
 % Please edit documentation in R/slide2pdf.R
 \name{slide2pdf}
 \alias{slide2pdf}
-\title{Converting slides to PDF format using chrome_print}
+\title{Converting xaringan slides to PDF}
 \usage{
-slide2pdf(slname)
+slide2pdf(f)
 }
 \arguments{
-\item{slname}{Either the name of the HTML slides (preferred) or the name of the Rmd file}
+\item{f}{The relative path to the R Markdown file for the xaringan presentation}
+}
+\value{
+The function produces a PDF in the folder where the HTML version of the file resides for web deployment
 }
 \description{
-Converting slides to PDF format using chrome_print
+Converting xaringan slides to PDF
+}
+\examples{
+# slide2pdf('slides/lectures/00-Introduction.Rmd')
 }

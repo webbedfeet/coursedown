@@ -2,16 +2,23 @@
 % Please edit documentation in R/classDate.R
 \name{classDate}
 \alias{classDate}
-\title{Fill in a sequence of dates for class}
+\title{Compute the dates for the class, based on weekly classes}
 \usage{
-classDate(wk, startDate)
+classDate(wk, startDate, out_format = "\%B \%d, \%Y")
 }
 \arguments{
-\item{wk}{The week number (integer >= 1)}
+\item{wk}{The week number}
+
+\item{startDate}{The first date for class, formatted as YYYY-MM-DD}
+
+\item{out_format}{The format in which the dates will be printed. Follows the conventions in \code{strptime}}
 }
 \value{
-New dates
+A formatted date
 }
 \description{
-Fill in a sequence of dates for class
+Compute the dates for the class, based on weekly classes
+}
+\examples{
+classDate(3, '2019-01-28')
 }
