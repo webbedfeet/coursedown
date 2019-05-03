@@ -1,59 +1,50 @@
 library(drake)
 library(fs)
 library(here)
+suppressPackageStartupMessages(library(tidyverse))
 
-rmd2pdf <- function(f){
-  outdir <- here::here('docs','slides','lectures')
-  fname <- fs::path_file(f)
-  pdfname <- stringr::str_replace(fname, 'Rmd','pdf')
-  pagedown::chrome_print(f, output = fs::path(outdir, pdfname))
-}
 
-rmdfiles <- dir_ls(here::here('slides','lectures'), glob = '*.Rmd')
-outdir <- here::here('docs','slides','lectures')
-outrmd <- fs::path('docs',rmdfiles)
-
-slides_plan <- drake_plan(
-  create_slides = target(
-    rmarkdown::render(knitr_in(rmdf),
-                      output_dir = here::here('docs','slides','lectures')),
-    transform = map(rmdf = !!rmdfiles) ),
-  create_pdfs = target(
-    rmd2pdf(file_in(rmdf)),
-    transform = map(rmdf = !!rmdfiles)),
-  make_index = target(
-    rmarkdown::render_site(input = knitr_in(here::here('slides','index.Rmd'))),
-    trigger = trigger(depend = all(file_exists(!!outrmd)))
-  )
-)
+slides_rmdfiles <- dir_ls('slides/lectures/', glob = '*.Rmd')
+slides_outdir <- here::here('docs','slides','lectures')
+slides_outrmd <- fs::path('docs',slides_rmdfiles)
+slides_outpdf <- str_replace(slides_outrmd, 'Rmd','pdf')
 
 hw_rmdfiles <- dir_ls('assignments/HW', glob = '*.Rmd')
 hw_outdir <- here::here('docs','assignments','HW')
 hw_outrmd <- fs::path('docs',hw_rmdfiles)
 
-hw_plan <- drake_plan(
-  create_hw = target(
+top_rmdfiles <- dir_ls('.', glob = '*.Rmd')
+
+full_plan <- drake_plan(
+  create_slides_html = target(
+    rmarkdown::render(knitr_in(rmdf), output_dir=slides_outdir),
+    transform = map(rmdf=!!slides_rmdfiles)
+  ),
+  create_slides_pdf = target(
+    rmd2pdf(knitr_in(rmdf)),
+    transform = map(rmdf = !!slides_rmdfiles)
+  ),
+  make_slide_index = target(
+    rmarkdown::render_site(input = knitr_in('slides/index.Rmd')),
+    trigger = trigger(depend = all(file_exists(!!slides_outrmd)))
+  ),
+  create_hw_html = target(
     rmarkdown::render(knitr_in(rmdf), output_dir = hw_outdir),
     transform = map(rmdf = !!hw_rmdfiles)
   ),
-  make_index = target(
+  make_hw_index = target(
     rmarkdown::render_site(input = knitr_in(here::here('assignments'))),
     trigger = trigger(depend = all(file_exists(!!hw_outrmd)))
+  ),
+  create_notes_html = rmarkdown::render(input = knitr_in('notes/index.Rmd'),
+                                        output_format = "bookdown::gitbook"),
+  create_notes_pdf = bookdown::render_book(input = knitr_in('notes/index1.Rmd'),
+                                           output_format = 'bookdown::pdf_book',
+                                           config_file = '_bookdown.yml'),
+  create_top = target(
+    rmarkdown::render_site(input = knitr_in(rmdf)),
+    transform = map(rmdf = !!top_rmdfiles)
   )
 )
 
-notes_plan <- drake_plan(
-  create_notes = rmarkdown::render_site(knitr_in(here('notes')),
-                                        output_format = 'bookdown::gitbook'),
-  create_notes_pdf = rmarkdown::render_site(knitr_in(here('notes')),
-                                            output_format = 'bookdown::pdf_book')
-)
-
-top_plan <- drake_plan(
-  create_site = target(
-    rmarkdown::render_site(input = knitr_in(here::here()))
-  )
-)
-
-config_slides <- drake_config(slides_plan, verbose = 2)
-config_hw <- drake_config(hw_plan, verbose = 2)
+drake_config(full_plan)
