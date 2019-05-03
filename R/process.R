@@ -18,5 +18,6 @@ process <- function(drake_source = here::here('_drake.R'), plan = full_plan, loc
     usethis::use_template('_drake.R', package='coursedown', save_as = drake_source)
   }
   source(drake_source)
-  drake::make(plan, lock_envir = F)
+  tst <- tryCatch(drake::make(plan, lock_envir = lock_environment))
+  if(is.null(tst)) saveRDS(curr_notes_time, file = 'notes/mod_times.rds')
 }
