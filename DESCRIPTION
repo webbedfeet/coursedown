@@ -1,5 +1,5 @@
 Package: coursedown
-Title: Creating course matetials using RMarkdown
+Title: Creating course materials using R Markdown
 Version: 0.2.0
 Authors@R: 
     person(given = "Abhijit",
@@ -15,7 +15,20 @@ Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.1.1
 Imports:
-    fs, drake, rmarkdown, usethis, whisker, yaml, here, tidyverse, pagedown, purrr
+    fs,
+    drake (>= 7.0),
+    rmarkdown,
+    usethis,
+    yaml,
+    here,
+    tidyverse,
+    pagedown,
+    purrr,
+    bookdown,
+    glue,
+    rlang,
+    stringr,
+    whisker
 Suggests: 
     testthat
 URL: https://github.com/webbedfeet/coursedown
