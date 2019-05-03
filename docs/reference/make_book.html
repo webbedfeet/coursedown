@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • coursedown</title>
+<title>Create the coursenotes using bookdonw — make_book • coursedown</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,7 +30,10 @@
 
 
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="Create the coursenotes using bookdonw — make_book" />
+
+<meta property="og:description" content="Create the coursenotes using bookdonw" />
+<meta name="twitter:card" content="summary" />
 
 
 
@@ -47,7 +50,7 @@
   </head>
 
   <body>
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -97,78 +100,48 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>Create the coursenotes using bookdonw</h1>
+    <small class="dont-index">Source: <a href='https://github.com/webbedfeet/coursedown/blob/master/R/make_book.R'><code>R/make_book.R</code></a></small>
+    <div class="hidden name"><code>make_book.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    
+    <p>Create the coursenotes using bookdonw</p>
+    
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
-
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      <tr>
-        
-        <td>
-          <p><code><a href="add_slide.html">add_slide()</a></code> </p>
-        </td>
-        <td><p>Adding a `xaringan` RMarkdown file into the `slides` folder</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="classDate.html">classDate()</a></code> </p>
-        </td>
-        <td><p>Compute the dates for the class, based on weekly classes</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="create_course.html">create_course()</a></code> </p>
-        </td>
-        <td><p>Create a templated file and directory structure for a teaching course</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="make_book.html">make_book()</a></code> </p>
-        </td>
-        <td><p>Create the coursenotes using bookdonw</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="process.html">process()</a></code> </p>
-        </td>
-        <td><p>Processing all the raw files to create a deployable website</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="slide2note.html">slide2note()</a></code> </p>
-        </td>
-        <td><p>Translate a xaringan slide into a bookdown chapter</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="slide2pdf.html">slide2pdf()</a></code> </p>
-        </td>
-        <td><p>Converting xaringan slides to PDF</p></td>
-      </tr>
-    </tbody>
+    <pre class="usage"><span class='fu'>make_book</span>(<span class='no'>infile</span>, <span class='no'>output_format</span>)</pre>
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>infile</th>
+      <td><p>The index file for the course notes</p></td>
+    </tr>
+    <tr>
+      <th>output_format</th>
+      <td><p>The bookdown output format</p></td>
+    </tr>
     </table>
-  </div>
+    
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
+    <p>The outcome is a bookdown-based book</p>
+    
+
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#section-all-functions">All functions</a></li>
-    </ul>
+      <li><a href="#arguments">Arguments</a></li>
+      
+      <li><a href="#value">Value</a></li>
+          </ul>
+
   </div>
 </div>
 
