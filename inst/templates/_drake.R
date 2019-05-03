@@ -4,8 +4,7 @@ library(here)
 suppressPackageStartupMessages(library(tidyverse))
 library(bookdown)
 
-old_notes_time <- readRDS('notes/mod_times.rds')
-curr_notes_time <- fs::dir_info('notes', glob = '*.Rmd') %>% select(path,change_time)
+last_drake = max(dir_info('.drake')$modification_time)
 
 slides_rmdfiles <- dir_ls('slides/lectures/', glob = '*.Rmd')
 slides_outdir <- here::here('docs','slides','lectures')
@@ -41,11 +40,13 @@ full_plan <- drake_plan(
   ),
   create_notes_html = target(
     coursedown::make_book(knitr_in('notes/index.Rmd'),"bookdown::gitbook"),
-    trigger = trigger(condition = any(curr_notes_time$change_time > old_notes_time$change_time))
+    trigger = trigger(condition =
+                        (max(fs::dir_info('notes',glob = '*.Rmd')$modification_time) > last_drake))
   ),
   create_notes_pdf = target(
     coursedown::make_book(knitr_in('notes/index1.Rmd'),'bookdown::pdf_book'),
-    trigger = trigger(condition = any(curr_notes_time$change_time > old_notes_time$change_time))
+    trigger = trigger(condition =
+                        (max(fs::dir_info('notes',glob = '*.Rmd')$modification_time) > last_drake))
   ),
   create_top = target(
     rmarkdown::render_site(input = knitr_in(rmdf)),
