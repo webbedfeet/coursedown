@@ -1,4 +1,4 @@
-#' Create a template file and directory structure for a teaching course
+#' Create a templated file and directory structure for a teaching course
 #'
 #' This creates folders for slides, course notes and homework,
 #' as well as a website for the course with syllabus, instructor bio and
@@ -46,13 +46,12 @@ create_course <- function(slides = TRUE, notes = TRUE, hw = FALSE){
   if(notes) course_directories <- c(course_directories,
                                     'notes/img','notes/latex', 'docs/notes')
   if(hw) course_directories <- c(course_directories,
-                                'assignments', 'docs/assignments')
+                                'assignments/HW', 'docs/assignments/HW')
 
   fs::dir_create(course_directories, recursive = T)
   # Fill in top website files
   usethis::use_template('index_top.Rmd', save_as = "index.Rmd", package='coursedown',
                data=course_data)
-    print('got here')
   usethis::use_template('top_sites.yml', save_as = '_site.yml', package='coursedown',
                data = course_data)
   fs::file_create(c('style.css', 'bio.Rmd','syllabus.Rmd','resources.Rmd'))
@@ -100,5 +99,5 @@ create_course <- function(slides = TRUE, notes = TRUE, hw = FALSE){
               'assignments/style.css', overwrite = T)
 
   }
-
+  usethis::use_template('_drake.R', save_as = '_drake.R', package = 'coursedown')
 }
