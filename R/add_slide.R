@@ -40,5 +40,5 @@ add_slide <- function(nm = 'Untitled.Rmd', template='default', open=TRUE){
       readLines(template, encoding = 'UTF-8'), course_data),'\n')[[1]]
     writeLines(contents, con = file(file.path('slides', nm)))
   }
-  if(open) usethis::edit_file(file.path('slides',nm))
+  if(open) usethis::edit_file(file.path('slides/lectures',nm))
 }
