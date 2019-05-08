@@ -12,17 +12,21 @@
 #' @export
 #'
 #' @examples
+#' # Not run:
 #' # process() # Uses default values
 process <- function(drake_source = here::here('_drake.R'), plan = full_plan, lock_environment = TRUE){
+  curdir <- getwd()
+  setwd(here::here())
   if(!fs::file_exists(drake_source)){
     usethis::use_template('_drake.R', package='coursedown', save_as = drake_source)
   }
   tmp <- new.env()
-  source(drake_source, local=tmp) # capturing names of the created objects
+  source(drake_source, local = tmp) # capturing names of the created objects
   source(drake_source)
   tst <- tryCatch(drake::make(plan, lock_envir = lock_environment))
   if(is.null(tst)) {
     rm(list = ls(tmp), envir = as.environment('.GlobalEnv'))
     rm(tmp)
   }
+  setwd(curdir)
 }
