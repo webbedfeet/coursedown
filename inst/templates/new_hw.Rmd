@@ -1,0 +1,12 @@
+---
+title: {{title}}
+author: {{course_shortname}}, {{dates}}
+date: {{due_date}}
+output:
+  html_document: default
+---
+
+```{r , include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+

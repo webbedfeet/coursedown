@@ -1,0 +1,19 @@
+---
+title: ""
+author: {{instructor}}
+date: {{dates}}
+
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = '#> ')
+```
+
+layout: true
+
+<div class="my-header">
+<span>{{course_shortname}}, {{dates}}</span></div>
+
+---
+
+
